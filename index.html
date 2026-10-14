@@ -1,549 +1,343 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#190d18">
-<title>Göktürk ❤️ Kübra | Bir Ömür Seninle</title>
-
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#321126">
+<title>Göktürk & Kübra | Bir Ömürlük Hikâye</title>
 <style>
-:root {
-  --pink: #ff8fae;
-  --rose: #e85d83;
-  --cream: #fff4f5;
-  --glass: rgba(32, 14, 28, .67);
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: Georgia, "Times New Roman", serif;
-  background: #190d18;
-  color: var(--cream);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-.bg {
-  position: fixed;
-  inset: 0;
-  z-index: -3;
-  background: url("love.jpg") center 40% / cover no-repeat;
-  transform: scale(1.03);
-}
-
-.bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 8, 17, .45),
-    rgba(25, 8, 22, .75) 55%,
-    #190d18
-  );
-}
-
-#hearts {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.heart {
-  position: absolute;
-  bottom: -40px;
-  color: #ff9bb8;
-  opacity: .7;
-  animation: floatUp linear forwards;
-}
-
-@keyframes floatUp {
-  to { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
-}
-
-header {
-  padding: 22px 16px;
-  text-align: center;
-  letter-spacing: 3px;
-  font-size: 12px;
-  color: #ffd8e3;
-}
-
-main {
-  width: min(900px, 100%);
-  margin: auto;
-  padding: 28px 18px 60px;
-}
-
-.hero {
-  min-height: 70vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 35px 8px;
-  animation: appear 1.4s ease both;
-}
-
-@keyframes appear {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.eyebrow {
-  color: #ffc1d2;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font: 11px Arial, sans-serif;
-  margin-bottom: 25px;
-}
-
-h1 {
-  font-size: clamp(39px, 9vw, 76px);
-  line-height: 1.12;
-  font-weight: normal;
-  text-shadow: 0 5px 35px #000;
-}
-
-h1 span { color: var(--pink); }
-
-.subtitle {
-  margin-top: 24px;
-  max-width: 530px;
-  font-size: clamp(16px, 4vw, 21px);
-  line-height: 1.8;
-  color: #fff0f4;
-}
-
-.signature {
-  margin-top: 22px;
-  font-style: italic;
-  color: #ffb5ca;
-  font-size: 19px;
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-top: 32px;
-}
-
-button {
-  border: 1px solid rgba(255, 205, 220, .5);
-  color: white;
-  background: rgba(255, 255, 255, .09);
-  padding: 13px 19px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: .25s;
-  backdrop-filter: blur(8px);
-}
-
-button:hover {
-  background: rgba(232, 93, 131, .4);
-  transform: translateY(-2px);
-}
-
-.primary {
-  background: linear-gradient(135deg, #e85d83, #a83765);
-  border-color: transparent;
-}
-
-section {
-  margin: 28px 0;
-  padding: 27px 20px;
-  border: 1px solid rgba(255, 205, 220, .2);
-  background: var(--glass);
-  border-radius: 22px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 15px 50px rgba(0, 0, 0, .15);
-}
-
-h2 {
-  text-align: center;
-  font-size: clamp(24px, 5vw, 34px);
-  font-weight: normal;
-  color: #ffc2d3;
-  margin-bottom: 13px;
-}
-
-.section-intro {
-  text-align: center;
-  color: #f3dce5;
-  font: 13px/1.8 Arial, sans-serif;
-  margin-bottom: 23px;
-}
-
-.counter-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 9px;
-  margin-top: 25px;
-}
-
-.counter {
-  padding: 16px 4px;
-  text-align: center;
-  background: rgba(255, 255, 255, .07);
-  border-radius: 13px;
-}
-
-.counter strong {
-  display: block;
-  color: #ffb4ca;
-  font-size: clamp(22px, 5vw, 35px);
-  font-weight: normal;
-}
-
-.counter span {
-  display: block;
-  font: 10px Arial, sans-serif;
-  margin-top: 7px;
-  color: #f5dce5;
-}
-
-.timeline {
-  display: grid;
-  gap: 13px;
-}
-
-.memory {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 15px;
-  background: rgba(255, 255, 255, .055);
-  border-radius: 13px;
-  border-left: 2px solid var(--pink);
-}
-
-.memory .symbol { font-size: 23px; }
-
-.memory h3 {
-  color: #ffd2df;
-  font-size: 17px;
-  font-weight: normal;
-  margin-bottom: 5px;
-}
-
-.memory p {
-  color: #e8d4dd;
-  font: 12px/1.6 Arial, sans-serif;
-}
-
-.memory time {
-  display: block;
-  color: #ff9fba;
-  font: 11px Arial, sans-serif;
-  margin-top: 7px;
-}
-
-.love-note {
-  font-size: 17px;
-  line-height: 2;
-  text-align: center;
-  color: #fff0f4;
-  white-space: pre-line;
-}
-
-.hidden { display: none; }
-
-#surprise {
-  margin-top: 18px;
-  color: #ffd0de;
-  text-align: center;
-  line-height: 1.8;
-  font-size: 18px;
-}
-
-.meter-result {
-  text-align: center;
-  margin-top: 20px;
-  line-height: 1.8;
-  color: #ffd2df;
-}
-
-.meter-bar {
-  height: 9px;
-  border-radius: 10px;
-  background: rgba(255,255,255,.15);
-  margin-top: 17px;
-  overflow: hidden;
-}
-
-.meter-fill {
-  width: 0;
-  height: 100%;
-  border-radius: 10px;
-  background: linear-gradient(90deg, #e85d83, #ffc1d2);
-  transition: width 1s;
-}
-
-footer {
-  text-align: center;
-  padding: 28px 15px 38px;
-  color: #d8b4c2;
-  font-size: 13px;
-  line-height: 2;
-}
-
-footer span { color: var(--pink); }
-
-@media (max-width: 480px) {
-  main { padding-left: 13px; padding-right: 13px; }
-  section { padding: 23px 15px; }
-  .counter-grid { gap: 6px; }
-  .counter { padding: 13px 2px; }
-  .counter span { font-size: 9px; }
-  .actions button { padding: 12px 14px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
-  }
-}
+:root{--bg:#170e19;--panel:#2b1728;--pink:#ffb7d0;--rose:#ed83ac;--cream:#fff5f8;--gold:#f5d6a1}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#49203b,#201321 48%,#120d16);color:var(--cream);font-family:system-ui,sans-serif;line-height:1.55}
+button,input{font:inherit}button{cursor:pointer}
+.wrap{width:min(100% - 28px,1000px);margin:auto}
+.hero{min-height:75vh;display:grid;place-items:center;text-align:center;padding:50px 14px;position:relative}
+.eyebrow{letter-spacing:3px;text-transform:uppercase;font-size:.75rem;color:var(--gold)}
+h1{font-family:Georgia,serif;font-weight:500;font-size:clamp(2.8rem,9vw,5.6rem);line-height:1.05;color:#ffe5ed}
+h2{font-family:Georgia,serif;font-size:clamp(1.7rem,5vw,2.5rem);font-weight:500;color:#ffd9e6;margin:0 0 12px}
+h3{color:var(--pink)}
+.lead{max-width:620px;margin:0 auto 22px;color:#f3dce7}
+.btn{display:inline-block;border:1px solid #ffbdd3;background:linear-gradient(135deg,#ffc5d9,#ed83ac);color:#39192b;border-radius:999px;padding:11px 18px;font-weight:750;text-decoration:none}
+.btn.secondary{background:#ffffff10;color:var(--cream);border-color:#ffffff35}
+.section{padding:25px 0}
+.section-head{text-align:center;margin:0 auto 22px;max-width:700px}
+.panel{background:linear-gradient(145deg,#3a2036,#211523);border:1px solid #f7b3cf40;border-radius:24px;padding:clamp(18px,4vw,28px);box-shadow:0 18px 48px #0003;margin:16px 0}
+.center{text-align:center}
+.small{font-size:.9rem;color:#e8cbd8}
+.countdown{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;max-width:600px;margin:24px auto}
+.timebox{padding:14px 3px;border-radius:16px;background:#ffffff0e;border:1px solid #ffffff1b}
+.timebox strong{display:block;font-size:clamp(1.4rem,6vw,2.7rem);color:var(--pink);font-variant-numeric:tabular-nums}
+.timebox span{font-size:.78rem}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.photo{border:1px solid #ffffff24;background:#fff1f6;border-radius:17px;overflow:hidden;aspect-ratio:4/5;position:relative;margin:0}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo figcaption{position:absolute;bottom:0;left:0;right:0;padding:28px 10px 10px;background:linear-gradient(transparent,#160d17d9);font-size:.85rem}
+.music-frame{width:100%;height:352px;border:0;border-radius:14px}
+.game-top{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.status{color:#ffd9e6;min-height:28px;margin:10px 0}
+.pill{display:inline-block;border:1px solid #ffb7d055;border-radius:999px;padding:5px 10px;color:#ffd9e6;font-size:.8rem}
+.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:16px}
+.memory-card{aspect-ratio:3/4;border:1px solid #ffbdd377;border-radius:13px;padding:0;overflow:hidden;background:linear-gradient(145deg,#6a2d51,#28172c);color:#ffcfdf;font-size:clamp(1.2rem,5vw,2rem);display:grid;place-items:center}
+.memory-card img{width:100%;height:100%;object-fit:cover;display:block}
+.memory-card.matched{outline:3px solid #f5d6a1}
+.memory-card:disabled{cursor:default}
+.map-board{overflow:hidden;border-radius:18px;border:1px solid #ffc1d64d;background:linear-gradient(135deg,#233b42,#1c303a 55%,#37283c);padding:12px}
+.map-board svg{width:100%;height:auto;display:block}
+.map-land{fill:#597b72;stroke:#b6d6b7;stroke-width:2}
+.route{fill:none;stroke:#ffb7d0;stroke-width:4;stroke-linecap:round;stroke-dasharray:7 7}
+.map-label{fill:#fff5f8;font-size:13px;font-weight:700}
+.map-node{fill:#ffccdd;stroke:#7e3456;stroke-width:2}
+.map-player{font-size:25px}
+.quiz-options{display:grid;gap:8px}
+.option{border:1px solid #ffb7d066;background:#ffffff0d;color:var(--cream);border-radius:13px;padding:12px;text-align:left}
+.letter{display:none;background:#fff0f5;color:#50223b;padding:20px;border-radius:16px;white-space:pre-line;margin-top:14px}
+.footer{text-align:center;padding:35px 10px 55px;color:#d9b6c8}
+@media(min-width:650px){.gallery{grid-template-columns:repeat(3,minmax(0,1fr))}.memory-grid{grid-template-columns:repeat(6,minmax(0,1fr))}.hero{min-height:80vh}}
 </style>
 </head>
-
 <body>
-<div class="bg"></div>
-<div id="hearts"></div>
+<header class="hero wrap">
+ <div>
+  <div class="eyebrow">İki şehir · Tek kalp · Bir ömür</div>
+  <h1>Göktürk <span style="color:var(--pink)">♥</span> Kübra</h1>
+  <p class="lead">17 Kasım 2022'de başlayan hikâyemiz, her gün yeni bir anıyla büyüyor. Mesafeler ne kadar uzun olursa olsun, yolumuz birbirimize çıkıyor.</p>
+  <p>♡ ∞ ♡</p>
+  <a class="btn" href="#geri-sayim">Büyük güne doğru ↓</a>
+ </div>
+</header>
 
-<header>♥ BİZİM HİKÂYEMİZ ♥</header>
-
-<main>
-  <div class="hero">
-    <div class="eyebrow">Bir tesadüften çok daha fazlası</div>
-
-    <h1>Göktürk <span>♥</span><br>Kübra</h1>
-
-    <p class="subtitle">
-      Bazı insanlar hayatına girer ve her şeyi güzelleştirir.
-      Sen benim en güzel tesadüfüm, en kıymetli gerçeğimsin.
-      İyi ki yollarımız kesişmiş, iyi ki sen.
-    </p>
-
-    <div class="signature">Sonsuza kadar seninle…</div>
-
-    <div class="actions">
-      <button class="primary" id="loveBtn">♥ Seni çok seviyorum</button>
-      <button id="meterBtn">♡ Aşk ölçer</button>
-      <button id="musicBtn">♫ Müziği başlat</button>
-    </div>
-
-    <div id="surprise" class="hidden" aria-live="polite"></div>
+<main class="wrap">
+<section id="geri-sayim" class="section">
+ <div class="panel center">
+  <div class="eyebrow">Büyük günümüze</div>
+  <h2>Bir ömürlük yolculuğa…</h2>
+  <div class="countdown" aria-live="polite">
+   <div class="timebox"><strong id="days">—</strong><span>Gün</span></div>
+   <div class="timebox"><strong id="hours">—</strong><span>Saat</span></div>
+   <div class="timebox"><strong id="minutes">—</strong><span>Dakika</span></div>
+   <div class="timebox"><strong id="seconds">—</strong><span>Saniye</span></div>
   </div>
+  <p><strong>20 Mayıs 2027</strong> · Düğünümüz 💍</p>
+  <p class="small">Her saniye bizi yeni bir başlangıca yaklaştırıyor.</p>
+ </div>
+</section>
 
-  <section>
-    <h2>Birlikte geçen zamanımız</h2>
-    <p class="section-intro">
-      13 Nisan 2023'ten beri büyüyen hikâyemiz…
-    </p>
+<section class="section" id="hikayemiz">
+ <div class="section-head"><div class="eyebrow">Zaman çizelgemiz</div><h2>Bizim hikâyemiz</h2></div>
+ <div class="panel">
+  <p>💫 <strong>17 Kasım 2022</strong> — İlk tanışmamız</p>
+  <p>🍽️ <strong>6 Aralık 2022</strong> — Kulüp yemeği</p>
+  <p>🌹 <strong>23 Aralık 2022</strong> — İlk buluşmamız</p>
+  <p>❤️ <strong>13 Nisan 2023</strong> — Sevgili olduğumuz gün</p>
+  <p>💐 <strong>8 Mayıs 2026</strong> — İsteme</p>
+  <p>💍 <strong>9 Mayıs 2026</strong> — Nişanımız</p>
+  <p>🕊️ <strong>21 Eylül 2026</strong> — Nikâhımız</p>
+ </div>
+</section>
 
-    <div class="counter-grid">
-      <div class="counter">
-        <strong id="days">0</strong>
-        <span>GÜN</span>
-      </div>
-      <div class="counter">
-        <strong id="hours">0</strong>
-        <span>SAAT</span>
-      </div>
-      <div class="counter">
-        <strong id="minutes">0</strong>
-        <span>DAKİKA</span>
-      </div>
-      <div class="counter">
-        <strong id="seconds">0</strong>
-        <span>SANİYE</span>
-      </div>
-    </div>
-  </section>
+<section class="section" id="galeri">
+ <div class="section-head">
+  <div class="eyebrow">Küçük anılar, kocaman mutluluklar</div>
+  <h2>Anı galerimiz 📸</h2>
+  <p>Fotoğraflar GitHub'daki photos klasöründen yüklenir.</p>
+ </div>
+ <div class="gallery" id="gallery"></div>
+</section>
 
-  <section>
-    <h2>Aşk günlüğümüz</h2>
-    <p class="section-intro">
-      Her tarih, kalbimde ayrı bir yere sahip.
-    </p>
+<section class="section" id="spotify">
+ <div class="section-head"><div class="eyebrow">Bizim şarkılarımız</div><h2>Her şarkıda biraz sen, biraz biz… ♫</h2></div>
+ <div class="panel">
+  <iframe class="music-frame" title="Göktürk ve Kübra'nın Spotify çalma listesi"
+   src="https://open.spotify.com/embed/playlist/33vYsqJvEMeGQiMxdAe2Jj?utm_source=generator&theme=0"
+   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  <p class="center"><a class="btn secondary" href="https://open.spotify.com/playlist/33vYsqJvEMeGQiMxdAe2Jj" target="_blank" rel="noopener noreferrer">Spotify'da aç ♫</a></p>
+ </div>
+</section>
 
-    <div class="timeline">
-      <article class="memory">
-        <div class="symbol">✨</div>
-        <div>
-          <h3>İlk tanışmamız</h3>
-          <p>Her şeyin başladığı o güzel gün.</p>
-          <time datetime="2022-11-17">17 Kasım 2022</time>
-        </div>
-      </article>
+<section class="section" id="hafiza">
+ <div class="section-head"><div class="eyebrow">Dikkatini topla, anıları eşleştir</div><h2>Fotoğraflı hafıza oyunu 🧩</h2><p>Aynı fotoğrafın eşini bul. Bütün çiftleri açınca sürpriz mesaj seni bekliyor.</p></div>
+ <div class="panel">
+  <div class="game-top">
+   <span class="pill">Hamle: <strong id="moves">0</strong></span>
+   <span class="pill">Eşleşen çift: <strong id="pairs">0</strong>/6</span>
+   <button class="btn secondary" id="resetMemory">Yeniden başlat ↻</button>
+  </div>
+  <div class="memory-grid" id="memoryGrid"></div>
+  <p class="status" id="memoryStatus" aria-live="polite">İlk iki kartını seç. Bol şans! 💗</p>
+  <div class="letter" id="memoryLetter">Kübra'm ❤️
 
-      <article class="memory">
-        <div class="symbol">🥂</div>
-        <div>
-          <h3>Kulüp yemeği</h3>
-          <p>Birlikte biriktireceğimiz anıların başlangıcı.</p>
-          <time datetime="2022-12-06">6 Aralık 2022</time>
-        </div>
-      </article>
+Bütün anılarımızın eşini buldun; tıpkı hayatta birbirimizi bulduğumuz gibi. En güzel anılarımız daha yaşamadıklarımız. Seni çok seviyorum.
 
-      <article class="memory">
-        <div class="symbol">🌹</div>
-        <div>
-          <h3>İlk buluşmamız</h3>
-          <p>Birlikte geçirilen zamanın daha da anlam kazandığı gün.</p>
-          <time datetime="2022-12-23">23 Aralık 2022</time>
-        </div>
-      </article>
+— Göktürk</div>
+ </div>
+</section>
 
-      <article class="memory">
-        <div class="symbol">❤️</div>
-        <div>
-          <h3>Biz olduk</h3>
-          <p>Hikâyemizin en güzel sayfalarından biri.</p>
-          <time datetime="2023-04-13">13 Nisan 2023</time>
-        </div>
-      </article>
-    </div>
-  </section>
+<section class="section" id="kavusma">
+ <div class="section-head"><div class="eyebrow">Adana'dan Hopa'ya</div><h2>Kavuşma yolu 🗺️</h2><p>Engelleri aş, kalpleri topla ve Kübra'ya ulaş.</p></div>
+ <div class="panel">
+  <div class="game-top">
+   <span class="pill">Durak: <strong id="stageNum">1</strong>/5</span>
+   <span class="pill">Kalp: <strong id="routeScore">0</strong> ♥</span>
+   <button class="btn secondary" id="routeReset">Yolu baştan al ↻</button>
+  </div>
+  <div class="map-board">
+   <svg viewBox="0 0 600 360" role="img" aria-label="Adana'dan Hopa'ya temsili rota">
+    <path class="map-land" d="M35 215 L58 185 L88 178 L100 150 L134 145 L150 120 L182 128 L204 108 L237 119 L255 94 L289 101 L310 80 L345 91 L367 70 L397 82 L420 68 L448 85 L480 78 L508 101 L542 105 L562 128 L546 148 L520 155 L500 177 L469 183 L452 205 L423 213 L403 236 L370 233 L350 252 L320 246 L298 264 L270 250 L246 265 L220 251 L197 263 L177 246 L149 249 L130 232 L105 239 L83 224 L59 232 Z"/>
+    <path class="route" d="M155 250 Q180 225 220 226 T286 195 T350 158 T420 120 T500 105"/>
+    <circle class="map-node" cx="155" cy="250" r="7"/><circle class="map-node" cx="220" cy="226" r="7"/><circle class="map-node" cx="286" cy="195" r="7"/><circle class="map-node" cx="350" cy="158" r="7"/><circle class="map-node" cx="420" cy="120" r="7"/><circle class="map-node" cx="500" cy="105" r="7"/>
+    <text class="map-label" x="80" y="285">ADANA · GÖKTÜRK</text><text class="map-label" x="420" y="80">HOPA · KÜBRA</text>
+    <text class="map-label" x="200" y="205">Toroslar</text><text class="map-label" x="290" y="176">Yollar</text><text class="map-label" x="366" y="140">Dağ geçidi</text>
+    <text id="player" class="map-player" x="145" y="241">🧑🏻</text>
+   </svg>
+  </div>
+  <h3 id="routeTitle">1. Durak: Adana'dan yola çık</h3>
+  <p id="routePrompt">İlk engel: uzun yol! Cesaretini topla ve ilk kalbi kazan.</p>
+  <div id="routeChoices" class="quiz-options"></div>
+  <p class="status" id="routeStatus" aria-live="polite">Doğru seçeneği bulup yoluna devam et.</p>
+  <div class="letter" id="routeLetter">💞 KAVUŞTUNUZ! 💞
 
-  <section>
-    <h2>Kübra'ya mektup</h2>
-    <p class="section-intro">Kalbimden sana…</p>
+Bunca yol, bunca engel… Hepsi aynı yerde bitiyor: birbirimizin yanında. Göktürk ve Kübra, hikâyeniz birlikte güzelleşmeye devam etsin. ❤️</div>
+ </div>
+</section>
 
-    <p class="love-note">
-      Sevgilim Kübra,
+<section class="section" id="kalbin-anahtari">
+ <div class="section-head"><div class="eyebrow">Sana özel</div><h2>Kalbin anahtarı 🔐</h2></div>
+ <div class="panel center">
+  <p>Sevgili olduğumuz tarihi gün/ay/yıl şeklinde yazıp mektubunu aç.</p>
+  <input id="loveKey" type="text" inputmode="numeric" placeholder="GG/AA/YYYY" style="width:min(100%,300px);padding:12px;border-radius:12px;border:1px solid #ffb7d0;background:#fff5f8;color:#35152a">
+  <p><button class="btn" id="unlockLove">Mektubu aç 🔑</button></p>
+  <p class="status" id="keyStatus" aria-live="polite"></p>
+  <div class="letter" id="loveLetter">Kübra'm, ❤️
 
-      Seninle güldüğüm her an,
-      hayatın bana verdiği en güzel hediyelerden biri.
+Hayatıma girdiğin günden beri sıradan günler bile güzel bir hatıraya dönüştü. Birlikte attığımız her adım, kurduğumuz her hayal benim için çok kıymetli.
 
-      Bazen tek bir bakışın bütün yorgunluğumu unutturuyor.
-      Seninle sıradan günler bile unutulmaz bir anıya dönüşüyor.
+Mesafeler ve zorluklar değişebilir; ama seninle kurduğumuz hikâyenin anlamı değişmez. Sen, geleceğimi birlikte kurmak istediğim kişisin.
 
-      Geçmişteki bütün güzel anılarımızı kalbimde taşıyorum.
-      Gelecekte yaşayacağımız güzellikleri ise heyecanla bekliyorum.
+Seni çok seviyorum. İyi ki benim hikâyemdesin. ♾️
 
-      Elini tuttuğumda yalnızca bugünü değil,
-      birlikte geçireceğimiz bütün yarınları da seviyorum.
+— Göktürk'ün, daima ❤️</div>
+ </div>
+</section>
 
-      İyi ki varsın, iyi ki benimlesin.
-
-      Seni çok seviyorum.
-      <br><span style="color:#ff9fba">Sonsuz sevginle, Göktürk ♥</span>
-    </p>
-  </section>
-
-  <section>
-    <h2>Aşk ölçer</h2>
-    <p class="section-intro">
-      Bazı duyguların ölçüsü yoktur.
-    </p>
-
-    <div class="meter-bar">
-      <div class="meter-fill" id="meterFill"></div>
-    </div>
-
-    <p class="meter-result" id="meterText">
-      Aşkını ölçmek için butona dokun. ❤️
-    </p>
-  </section>
+<section class="section">
+ <div class="panel center"><h2>Seni çok seviyorum, Kübra ❤️</h2><p>Bu hikâyenin en güzel bölümleri daha yazılmadı.</p><button class="btn" id="loveButton">Seni çok seviyorum 💗</button><p id="loveReply" class="status" aria-live="polite"></p></div>
+</section>
 </main>
-
-<footer>
-  Göktürk <span>♥</span> Kübra<br>
-  Birlikte yazdığımız hikâye hiç bitmesin.<br>
-  <span>Daima sen, daima biz.</span>
-</footer>
-
-<audio id="music" src="romantic-loop.mp3" loop preload="none"></audio>
+<footer class="footer">Göktürk ♥ Kübra · Bir ömür, binlerce anı.<br><span class="small">Sevgiyle hazırlandı.</span></footer>
 
 <script>
-const startDate = Date.UTC(2023, 3, 13);
-const $ = id => document.getElementById(id);
+// Düğün geri sayımı: Türkiye saatiyle 20 Mayıs 2027 00.00
+(function(){
+ const target=new Date('2027-05-20T00:00:00+03:00').getTime();
+ function tick(){
+  let t=Math.max(0,target-Date.now());
+  const d=Math.floor(t/86400000);t%=86400000;
+  const h=Math.floor(t/3600000);t%=3600000;
+  const m=Math.floor(t/60000);const s=Math.floor((t%60000)/1000);
+  document.getElementById('days').textContent=d;
+  document.getElementById('hours').textContent=String(h).padStart(2,'0');
+  document.getElementById('minutes').textContent=String(m).padStart(2,'0');
+  document.getElementById('seconds').textContent=String(s).padStart(2,'0');
+ }
+ tick();setInterval(tick,1000);
+})();
 
-function updateCounter() {
-  const elapsed = Math.max(0, Date.now() - startDate);
-  const totalSeconds = Math.floor(elapsed / 1000);
+// Fotoğraflar: GitHub'daki Kubra/photos klasöründeki dosya adları.
+const photos=[
+ 'ani-01.jpg','ani-02.jpg','ani-03.jpg','ani-04.jpg',
+ 'ani-05.jpg','ani-06.webp','ani-07.webp','ani-08.jpg',
+ 'ani-09.jpg','ani-10.jpg','ani-11.jpg','ani-12.jpg'
+];
 
-  $("days").textContent = Math.floor(totalSeconds / 86400)
-    .toLocaleString("tr-TR");
+// Fotoğraf galerisi
+const gallery=document.getElementById('gallery');
+photos.forEach((file,i)=>{
+ const fig=document.createElement('figure');fig.className='photo';
+ const img=document.createElement('img');img.src='photos/'+file;
+ img.alt='Göktürk ve Kübra anısı '+(i+1);img.loading='lazy';
+ img.onerror=()=>{fig.style.display='none'};
+ const cap=document.createElement('figcaption');
+ cap.textContent=['Birlikte güzel','Bizim anımız','Gülümseten gün','Sonsuza kadar','Kalbimde sen'][i%5];
+ fig.append(img,cap);gallery.append(fig);
+});
 
-  $("hours").textContent =
-    Math.floor(totalSeconds / 3600) % 24;
-
-  $("minutes").textContent =
-    Math.floor(totalSeconds / 60) % 60;
-
-  $("seconds").textContent = totalSeconds % 60;
+// Fotoğraflı hafıza oyunu
+const memoryGrid=document.getElementById('memoryGrid');
+let deck=[],first=null,second=null,lock=false,moves=0,pairs=0;
+function shuffle(a){
+ for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}
+ return a;
 }
+function initMemory(){
+ deck=shuffle(photos.slice(0,6).flatMap((src,id)=>[{src,id},{src,id}]));
+ first=second=null;lock=false;moves=0;pairs=0;
+ document.getElementById('moves').textContent='0';
+ document.getElementById('pairs').textContent='0';
+ document.getElementById('memoryStatus').textContent='İlk iki kartını seç. Bol şans! 💗';
+ document.getElementById('memoryLetter').style.display='none';
+ memoryGrid.replaceChildren();
+ deck.forEach((card,i)=>{
+  const b=document.createElement('button');b.className='memory-card';
+  b.type='button';b.textContent='♥';b.setAttribute('aria-label','Kapalı anı kartı');
+  b.addEventListener('click',()=>flip(b,card));memoryGrid.append(b);
+ });
+}
+function flip(btn,card){
+ if(lock||btn.disabled||btn===first)return;
+ const img=document.createElement('img');img.src='photos/'+card.src;img.alt='Anı fotoğrafı';
+ img.onerror=()=>{img.style.display='none';btn.textContent='♡'};
+ btn.textContent='';btn.append(img);
+ btn.dataset.pair=card.id;
+ if(!first){first=btn;return}
+ second=btn;moves++;document.getElementById('moves').textContent=moves;
+ if(first.dataset.pair===second.dataset.pair){
+  first.classList.add('matched');second.classList.add('matched');
+  first.disabled=second.disabled=true;first=second=null;pairs++;
+  document.getElementById('pairs').textContent=pairs;
+  document.getElementById('memoryStatus').textContent='Eşleşme bulundu! ❤️';
+  if(pairs===6){
+   document.getElementById('memoryStatus').textContent='Tüm anıları eşleştirdin!';
+   document.getElementById('memoryLetter').style.display='block';
+  }
+ }else{
+  lock=true;
+  setTimeout(()=>{
+   [first,second].forEach(b=>{b.replaceChildren();b.textContent='♥';delete b.dataset.pair});
+   first=second=null;lock=false;
+  },850);
+ }
+}
+document.getElementById('resetMemory').addEventListener('click',initMemory);
+initMemory();
 
-updateCounter();
-setInterval(updateCounter, 1000);
-
-$("loveBtn").addEventListener("click", () => {
-  const surprise = $("surprise");
-  surprise.classList.remove("hidden");
-  surprise.textContent =
-    "Kübra, seni dün olduğundan çok, yarın olacağından az seviyorum. ♥";
-  surprise.scrollIntoView({ behavior: "smooth", block: "center" });
-  burstHearts();
-});
-
-$("meterBtn").addEventListener("click", () => {
-  $("meterFill").style.width = "100%";
-  $("meterText").textContent =
-    "Göktürk'ün aşkını hiçbir makine ölçemeyecek kadar büyük! ❤️";
-  burstHearts();
-});
-
-const music = $("music");
-
-$("musicBtn").addEventListener("click", async () => {
-  if (music.paused) {
-    try {
-      await music.play();
-      $("musicBtn").textContent = "♫ Müziği durdur";
-    } catch (error) {
-      $("musicBtn").textContent = "Müzik açılamadı — tekrar dene";
+// Adana-Hopa kavuşma oyunu
+const stages=[
+ {title:'1. Durak: Adana’dan yola çık',prompt:'İlk engel: uzun yol! Hangisi sana güç verir?',options:['Birbirimize duyduğumuz sevgi ❤️','Vazgeçmek'],correct:0},
+ {title:'2. Durak: Toroslar',prompt:'Dağ geçidinde hava sertleşti. Ne yaparsın?',options:['Sabırla güvenli yolu seçerim','Hemen geri dönerim'],correct:0},
+ {title:'3. Durak: Uzun yol',prompt:'Mesafe özlemi artırıyor. Kübra’ya ne gönderirsin?',options:['İçten bir mesaj ve kalp 💌','Sessiz kalırım'],correct:0},
+ {title:'4. Durak: Karadeniz yolu',prompt:'Son virajda küçük bir engel var. Nasıl geçersin?',options:['Birlikte her şeyi aşarız derim','Tek başıma vazgeçerim'],correct:0},
+ {title:'5. Durak: Hopa’da kavuşma',prompt:'Kübra seni bekliyor! Son adım?',options:['Ona koşup sarılırım! 💗','Yolu yarıda bırakırım'],correct:0}
+];
+let stage=0,routeScore=0;
+function movePlayer(){
+ const pos=[[145,241],[210,217],[276,186],[340,149],[410,111],[490,96]][Math.min(stage,5)];
+ const p=document.getElementById('player');
+ p.setAttribute('x',pos[0]);p.setAttribute('y',pos[1]);
+ p.textContent=stage>=4?'🧑🏻‍🤝‍🧑🏻':'🧑🏻';
+}
+function renderStage(){
+ document.getElementById('stageNum').textContent=stage+1;
+ document.getElementById('routeScore').textContent=routeScore;
+ document.getElementById('routeTitle').textContent=stages[stage].title;
+ document.getElementById('routePrompt').textContent=stages[stage].prompt;
+ document.getElementById('routeStatus').textContent='';
+ document.getElementById('routeLetter').style.display='none';
+ const box=document.getElementById('routeChoices');box.replaceChildren();
+ stages[stage].options.forEach((text,i)=>{
+  const b=document.createElement('button');b.className='option';b.textContent=text;
+  b.addEventListener('click',()=>{
+   if(i===stages[stage].correct){
+    routeScore++;document.getElementById('routeScore').textContent=routeScore;
+    document.getElementById('routeStatus').textContent='Engeli aştın! Bir kalp daha kazandın. 💖';
+    if(stage<stages.length-1){
+     stage++;setTimeout(()=>{movePlayer();renderStage()},650);
+    }else{
+     document.getElementById('routeTitle').textContent='Kavuşma zamanı!';
+     document.getElementById('routePrompt').textContent='Adana’dan Hopa’ya uzanan yol tamamlandı.';
+     box.replaceChildren();movePlayer();
+     document.getElementById('routeLetter').style.display='block';
+     document.getElementById('stageNum').textContent='5';
     }
-  } else {
-    music.pause();
-    $("musicBtn").textContent = "♫ Müziği başlat";
-  }
-});
-
-function burstHearts() {
-  for (let i = 0; i < 14; i++) {
-    const heart = document.createElement("span");
-    heart.className = "heart";
-    heart.textContent = ["♥", "♡", "❤"][i % 3];
-    heart.style.left = (15 + Math.random() * 70) + "vw";
-    heart.style.fontSize = (15 + Math.random() * 23) + "px";
-    heart.style.animationDuration = (3 + Math.random() * 3) + "s";
-    $("hearts").appendChild(heart);
-    heart.addEventListener("animationend", () => heart.remove());
-  }
+   }else{
+    document.getElementById('routeStatus').textContent='Bu engel olmadı. Bir kez daha düşün ve tekrar dene. 💗';
+   }
+  });
+  box.append(b);
+ });
 }
+document.getElementById('routeReset').addEventListener('click',()=>{
+ stage=0;routeScore=0;movePlayer();renderStage();
+});
+renderStage();
 
-setInterval(() => {
-  const heart = document.createElement("span");
-  heart.className = "heart";
-  heart.textContent = "♥";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = (12 + Math.random() * 15) + "px";
-  heart.style.animationDuration = (8 + Math.random() * 7) + "s";
-  $("hearts").appendChild(heart);
-  heart.addEventListener("animationend", () => heart.remove());
-}, 1400);
+// Kalbin anahtarı
+function unlock(){
+ const v=document.getElementById('loveKey').value.trim().replace(/\s/g,'').replace(/[.-]/g,'/');
+ if(['13/04/2023','13/4/2023','13042023'].includes(v)){
+  document.getElementById('loveLetter').style.display='block';
+  document.getElementById('keyStatus').textContent='Doğru anahtar! Mektubun açıldı. ❤️';
+ }else{
+  document.getElementById('loveLetter').style.display='none';
+  document.getElementById('keyStatus').textContent='Bir ipucu daha: 13 Nisan 2023 💗';
+ }
+}
+document.getElementById('unlockLove').addEventListener('click',unlock);
+document.getElementById('loveKey').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+document.getElementById('loveButton').addEventListener('click',()=>{
+ document.getElementById('loveReply').textContent='Ben de seni çok seviyorum Kübra’m! ❤️💋';
+});
 </script>
 </body>
 </html>
